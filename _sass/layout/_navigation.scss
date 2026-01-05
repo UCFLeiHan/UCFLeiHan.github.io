@@ -152,8 +152,19 @@
 
     &.disabled {
       color: var(--global-text-color-light);
+      background-color: var(--global-bg-color);
+      border-color: var(--global-border-color);
+      opacity: 0.5;
       pointer-events: none;
       cursor: not-allowed;
+    }
+    
+    /* Dark mode specific disabled state */
+    html[data-theme="dark"] &.disabled {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      opacity: 0.4;
+      color: rgba(255, 255, 255, 0.3);
     }
   }
 }
@@ -193,6 +204,60 @@
     &[aria-current="page"] {
       color: #1976d2; /* Blue color for current page */
       font-weight: 500;
+    }
+  }
+
+  // Mobile theme toggle - positioned before hamburger menu
+  .mobile-theme-toggle {
+    position: absolute;
+    height: 2.5rem;
+    right: 2.5rem; // Position to the left of hamburger menu (which is 2.5rem wide)
+    padding: 0 0.5rem;
+    display: none; // Hidden by default (desktop)
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    color: var(--global-masthead-link-color);
+    text-decoration: none;
+    
+    @media (max-width: 42.375em) {
+      display: flex; // Show on mobile
+    }
+    
+    i {
+      font-size: 1.2em;
+    }
+    
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
+    }
+  }
+
+  // Mobile theme toggle - positioned before hamburger menu
+  .mobile-theme-toggle {
+    position: absolute;
+    height: 2.5rem;
+    right: 1.5rem; // Position closer to hamburger menu button
+    padding: 0 0.5rem;
+    display: none; // Hidden by default (desktop)
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    color: var(--global-masthead-link-color);
+    text-decoration: none;
+    
+    @media (max-width: 42.375em) {
+      display: flex; // Show on mobile
+    }
+    
+    i {
+      font-size: 1.2em;
+    }
+    
+    &:hover {
+      color: var(--global-masthead-link-color-hover);
     }
   }
 
@@ -238,6 +303,13 @@
         display: flex;
         justify-content: center;
         cursor: pointer;
+      }
+    }
+
+    // Hide desktop theme toggle on mobile
+    @media (max-width: 42.375em) {
+      #theme-toggle {
+        display: none;
       }
     }
 
@@ -295,6 +367,8 @@
       margin: 0;
       padding: 10px 20px;
       font-size: $type-size-5;
+      display: flex;
+      align-items: center;
 
       &:hover {
         color: var(--global-masthead-link-color-hover);

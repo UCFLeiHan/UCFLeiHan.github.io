@@ -128,9 +128,23 @@
     init();
   }
 
+  // Helper function to determine publication type from venue
+  function getPublicationType(venue) {
+    if (!venue) return '';
+    const venueLower = venue.toLowerCase();
+    if (venueLower === 'preprint') {
+      return 'preprint';
+    }
+    if (venueLower.includes('conference') || venueLower.includes('proceedings') || venueLower.includes('workshop')) {
+      return 'conference';
+    }
+    return 'journal';
+  }
+
   function init() {
     const searchInput = document.getElementById('publication-search');
     const yearFilter = document.getElementById('publication-year-filter');
+    const typeFilter = document.getElementById('publication-type-filter');
     const journalFilter = document.getElementById('publication-journal-filter');
     const objectsFilter = document.getElementById('publication-objects-filter');
     const authorFilter = document.getElementById('author-format-filter');
@@ -138,6 +152,38 @@
 
     if (!searchInput || !yearFilter || !publicationsList) {
       return; // Exit if elements don't exist
+    }
+
+    // Handle type filter change - show/hide journal filter and update options
+    if (typeFilter) {
+      typeFilter.addEventListener('change', function() {
+        const selectedType = typeFilter.value;
+        
+        if (selectedType === 'journal' && journalFilter) {
+          // Show journal filter and filter options
+          journalFilter.style.display = '';
+          // Filter journal options to show only journal venues
+          const options = journalFilter.querySelectorAll('option');
+          options.forEach(function(option) {
+            if (option.value === '') {
+              option.style.display = ''; // Always show "Select Journal"
+            } else {
+              const optionType = option.getAttribute('data-type');
+              option.style.display = (optionType === 'journal') ? '' : 'none';
+            }
+          });
+          // Reset journal filter when type changes
+          journalFilter.value = '';
+        } else {
+          // Hide journal filter for conference/preprint
+          if (journalFilter) {
+            journalFilter.style.display = 'none';
+            journalFilter.value = '';
+          }
+        }
+        
+        filterPublications();
+      });
     }
 
     // Get all publication items - try multiple selectors
@@ -155,6 +201,7 @@
         // Get all filter values - ensure we get fresh values each time
         const searchTerm = (searchInput && searchInput.value) ? searchInput.value.toLowerCase().trim() : '';
         const selectedYear = (yearFilter && yearFilter.value) ? yearFilter.value.trim() : '';
+        const selectedType = (typeFilter && typeFilter.value) ? typeFilter.value.trim() : '';
         const selectedJournal = (journalFilter && journalFilter.value) ? journalFilter.value.toLowerCase().trim() : '';
         const selectedObjects = (objectsFilter && objectsFilter.value) ? objectsFilter.value.toLowerCase().trim() : '';
         const selectedAuthorRole = (authorFilter && authorFilter.value) ? authorFilter.value : 'all';
@@ -167,11 +214,26 @@
           const year = yearAttr ? String(yearAttr).trim() : '';
           const title = (item.getAttribute('data-publication-title') || '').toLowerCase();
           const authors = (item.getAttribute('data-publication-authors') || '').toLowerCase();
-          const venue = (item.getAttribute('data-publication-venue') || '').toLowerCase();
+          const venue = (item.getAttribute('data-publication-venue') || '').trim();
+          const venueLower = venue.toLowerCase();
 
           // Check filters
+          // Type filter: if selected, publication type must match
+          let matchesType = !selectedType;
+          if (selectedType) {
+            const publicationType = getPublicationType(venue);
+            matchesType = publicationType === selectedType;
+          }
+          
           // Journal filter: if selected, venue must match (case-insensitive)
-          let matchesJournal = !selectedJournal || venue.includes(selectedJournal);
+          // Only apply if type is 'journal' and a specific journal is selected
+          let matchesJournal = true;
+          if (selectedType === 'journal' && selectedJournal) {
+            matchesJournal = venueLower.includes(selectedJournal);
+          } else if (selectedType && !selectedJournal) {
+            // If type is selected but no specific journal, just match the type
+            matchesJournal = true;
+          }
           
           // Year filter: if no year selected (empty), show all; if selected, must match exactly
           // Convert both to string for comparison
@@ -211,7 +273,8 @@
 
           // Show/hide item - all conditions must be true (AND logic)
           // All filter conditions must pass
-          const shouldShow = matchesJournal && 
+          const shouldShow = matchesType &&
+                            matchesJournal && 
                             matchesYear && 
                             matchesSearch && 
                             matchesObjects && 

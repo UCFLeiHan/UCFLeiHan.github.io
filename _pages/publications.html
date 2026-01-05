@@ -26,14 +26,27 @@ author_profile: true
       <option value="spatial modeling">Spatial Modeling</option>
       <option value="traffic state prediction">Traffic State Prediction</option>
     </select>
-    <select id="publication-journal-filter" class="publication-filter-select">
+    <select id="publication-type-filter" class="publication-filter-select">
       <option value="">Journal/Conference/Preprint</option>
+      <option value="journal">Journal</option>
+      <option value="conference">Conference</option>
+      <option value="preprint">Preprint</option>
+    </select>
+    <select id="publication-journal-filter" class="publication-filter-select" style="display: none;">
+      <option value="">Select Journal</option>
       {% assign all_venues = site.publications | map: 'venue' | uniq | sort %}
+      {% assign journal_venues = '' | split: ',' %}
       {% for venue in all_venues %}
-        {% if venue %}
-          <option value="{{ venue | downcase }}">{{ venue }}</option>
-      {% endif %}
-    {% endfor %}
+        {% if venue and venue != 'Preprint' %}
+          {% assign venue_lower = venue | downcase %}
+          {% unless venue_lower contains 'conference' or venue_lower contains 'proceedings' %}
+            {% assign journal_venues = journal_venues | push: venue %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      {% for venue in journal_venues %}
+        <option value="{{ venue | downcase }}" data-type="journal">{{ venue }}</option>
+      {% endfor %}
     </select>
     <select id="publication-year-filter" class="publication-filter-select">
       <option value="">Year</option>
@@ -49,7 +62,7 @@ author_profile: true
       <option value="other">Other Authors</option>
     </select>
   </div>
-  <div id="publications-count" style="margin-top: 0.5em; font-size: 0.9em; color: #666;">
+  <div id="publications-count" style="margin-top: 0.5em; font-size: 0.9em; color: var(--global-text-color-light);">
     Find <span id="publications-count-number">0</span> papers
   </div>
 </div>

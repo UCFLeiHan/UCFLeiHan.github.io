@@ -1,4 +1,11 @@
-<script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
+<!-- Load jQuery first (required by main-dev.js) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- Load navigation plugin -->
+<script src="{{ base_path }}/assets/js/plugins/jquery.greedy-navigation.js"></script>
+<!-- Load theme.js first (required by main-dev.js) -->
+<script src="{{ base_path }}/assets/js/theme.js"></script>
+<!-- Load main script (unminified for development) -->
+<script src="{{ base_path }}/assets/js/main-dev.js"></script>
 
 <!-- Citation Modal Script -->
 <script src="{{ base_path }}/assets/js/citation-modal.js"></script>

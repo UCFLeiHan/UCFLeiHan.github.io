@@ -1,5 +1,5 @@
 ---
-title: "ZFfighting: An Interesting Experience of AI-Human Coding FPS Game"
+title: "ZFighting: An Interesting Experience of AI-Human Coding FPS Game"
 date: 2025-11-05
 categories:
   - Posts

@@ -14,7 +14,7 @@ author_profile: true
 }
 
 .research-module {
-  background-color: white;
+  background-color: var(--global-bg-color);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -23,6 +23,7 @@ author_profile: true
   text-decoration: none !important;
   color: inherit;
   display: block;
+  border: 1px solid var(--global-border-color);
 }
 
 .research-module,
@@ -34,6 +35,10 @@ author_profile: true
   text-decoration: none !important;
 }
 
+.research-module a {
+  color: inherit !important;
+}
+
 .research-module:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -43,6 +48,14 @@ author_profile: true
 
 .research-module:hover * {
   text-decoration: none !important;
+}
+
+html[data-theme="dark"] .research-module {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="dark"] .research-module:hover {
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
 }
 
 .research-module-image {
@@ -56,48 +69,23 @@ author_profile: true
 }
 
 .research-module-content {
-  padding: 1.5em;
-}
-
-.research-module,
-.research-module *,
-.research-module a,
-.research-module h2,
-.research-module p,
-.research-module div {
-  text-decoration: none !important;
-}
-
-.research-module:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  text-decoration: none;
-  color: inherit;
-}
-
-.research-module:hover * {
-  text-decoration: none !important;
-}
-
-
-.research-module-content {
   padding: 0.5em 0.8em;
   padding-top: 1em;
   position: relative;
   z-index: 1;
-  color: #555;
+  color: var(--global-text-color);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: auto;
   height: auto;
-  background-color: white;
+  background-color: var(--global-bg-color);
 }
 
 .research-module-title {
   font-size: 1.3em;
   font-weight: 600;
-  color: #1976d2;
+  color: var(--global-link-color) !important;
   margin-bottom: 0.3em;
   margin-top: 0;
   line-height: 1.2;
@@ -105,8 +93,12 @@ author_profile: true
   border-bottom: none !important;
 }
 
+.research-module:hover .research-module-title {
+  color: var(--global-link-color-hover) !important;
+}
+
 .research-module-description {
-  color: #555;
+  color: var(--global-text-color);
   font-size: 0.9em;
   line-height: 1.3;
   margin-bottom: 0.5em;

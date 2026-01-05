@@ -15,15 +15,24 @@ author_profile: true
 }
 
 .habits-card {
-  background-color: white;
+  background-color: var(--global-bg-color);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1em 1.2em;
   transition: box-shadow 0.3s ease;
+  border: 1px solid var(--global-border-color);
 }
 
 .habits-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme="dark"] .habits-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .habits-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .habits-card details {
@@ -34,8 +43,8 @@ author_profile: true
   font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 0;
-  color: #333;
-  border-bottom: 2px solid #1976d2;
+  color: var(--global-text-color);
+  border-bottom: 2px solid var(--global-link-color);
   padding-bottom: 0.3em;
   cursor: pointer;
   list-style: none;
@@ -52,7 +61,7 @@ author_profile: true
   content: '▶';
   position: absolute;
   right: 0;
-  color: #1976d2;
+  color: var(--global-link-color);
   font-size: 0.8em;
   transition: transform 0.3s ease;
   top: 50%;
@@ -68,8 +77,16 @@ author_profile: true
 }
 
 .habits-card-content {
-  color: #555;
+  color: var(--global-text-color);
   line-height: 1.6;
+}
+
+.habits-card-content p {
+  color: var(--global-text-color);
+}
+
+.habits-card-content span {
+  color: var(--global-text-color);
 }
 
 .habits-card-content ul {
@@ -194,7 +211,7 @@ Let's check if you have the same habits with me:
             </a>
           </div>
           <div style="flex: 0 0 auto; text-align: center; min-width: 120px;">
-            <a href="https://www.imdb.com/title/tt0110080" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+            <a href="https://www.imdb.com/title/tt0113703/" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
               <img src="/images/love-letter-1995.jpg" alt="Love Letter (1995)" style="width: 120px; height: 180px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
             </a>
           </div>
@@ -277,7 +294,7 @@ Let's check if you have the same habits with me:
       <div class="habits-card-content">
         <div style="display: flex; gap: 2em; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 250px;">
-            <p style="font-weight: 600; margin-bottom: 0.8em; color: #333;">Computer Games:</p>
+            <p style="font-weight: 600; margin-bottom: 0.8em; color: var(--global-text-color);">Computer Games:</p>
             <div style="display: flex; flex-direction: column; gap: 0.5em;">
               <div style="display: flex; align-items: center; gap: 0.8em;">
                 <img src="/images/lol-logo.png" alt="League of Legends" style="width: 40px; height: 40px; object-fit: contain; border-radius: 4px;" onerror="this.style.display='none'">
@@ -294,14 +311,14 @@ Let's check if you have the same habits with me:
             </div>
           </div>
           <div style="flex: 1; min-width: 250px;">
-            <p style="font-weight: 600; margin-bottom: 0.8em; color: #333;">Mobile Games:</p>
+            <p style="font-weight: 600; margin-bottom: 0.8em; color: var(--global-text-color);">Mobile Games:</p>
             <div style="display: flex; flex-direction: column; gap: 0.5em;">
               <div style="display: flex; align-items: center; gap: 0.8em;">
                 <img src="/images/Honor_of_Kings_Logo.png" alt="Honor of Kings" style="width: 40px; height: 40px; object-fit: contain; border-radius: 4px;" onerror="this.style.display='none'">
                 <span>Honor of Kings</span>
               </div>
               <div style="display: flex; align-items: center; gap: 0.8em;">
-                <img src="/images/sky-children-logo.png" alt="Sky: Children of the Light" style="width: 40px; height: 40px; object-fit: contain; border-radius: 4px; background-color: transparent;">
+                <img src="/images/sky-children-logo.png" alt="Sky: Children of the Light" style="width: 40px; height: 40px; object-fit: contain; border-radius: 4px;">
                 <span>Sky: Children of the Light</span>
               </div>
               <div style="display: flex; align-items: center; gap: 0.8em;">

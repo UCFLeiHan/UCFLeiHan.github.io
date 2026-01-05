@@ -48,13 +48,25 @@
   /* for dark backgrounds */
 
   &--inverse {
-    color: var(--global-text-color-light) !important;
+    color: var(--global-text-color) !important;
     border: 1px solid var(--global-border-color) !important; /* override*/
     background-color: var(--global-bg-color);
+    
+    /* Lighten background - use lighter color in both modes */
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    
+    html[data-theme="dark"] & {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      border-color: var(--global-border-color);
+    }
 
     &:hover {
-      color: #fff !important;
-      border-color: var(--global-text-color-light);
+      color: var(--global-link-color) !important;
+      border-color: var(--global-link-color);
+      
+      html[data-theme="dark"] & {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+      }
     }
   }
 

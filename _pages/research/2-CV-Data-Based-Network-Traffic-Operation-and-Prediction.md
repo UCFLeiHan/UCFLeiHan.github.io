@@ -45,7 +45,7 @@ share: true
 .publication-image-caption {
   margin-top: 0.5em;
   font-size: 0.9em;
-  color: #666;
+  color: var(--global-text-color);
   font-style: italic;
 }
 </style>

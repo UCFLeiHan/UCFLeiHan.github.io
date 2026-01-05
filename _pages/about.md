@@ -54,14 +54,14 @@ I also serve as a reviewer for more than 10 transportation journals, including *
   <div class="featured-pub-item" style="margin-bottom: 2em; display: flex; gap: 2em; align-items: flex-start;">
     <div style="flex: 1; min-width: 0;">
       <div style="font-size: 1em; line-height: 1.6;">
-        <strong><a href="/publication/2025-09-01-CV-spatialML-intersection-crash" style="color: #1976d2; text-decoration: none;">Intersection Crash Analysis Considering Longitudinal and Lateral Risky Driving Behavior from Connected Vehicle Data: A Spatial Machine Learning Approach</a></strong>
-        <div style="margin-top: 0.5em; font-size: 0.9em; color: #666;">
+        <strong><a href="/publication/2025-09-01-CV-spatialML-intersection-crash" style="color: var(--global-link-color); text-decoration: none;">Intersection Crash Analysis Considering Longitudinal and Lateral Risky Driving Behavior from Connected Vehicle Data: A Spatial Machine Learning Approach</a></strong>
+        <div style="margin-top: 0.5em; font-size: 0.9em; color: var(--global-text-color);">
           <em>Accident Analysis & Prevention</em> (2025)
         </div>
-        <div style="margin-top: 0.4em; font-size: 0.9em; color: #555;">
+        <div style="margin-top: 0.4em; font-size: 0.9em; color: var(--global-text-color);">
           <strong>Lei Han</strong>*, Mohamed Abdel-Aty
         </div>
-        <div style="margin-top: 0.6em; font-size: 0.95em; color: #444; line-height: 1.5;">
+        <div style="margin-top: 0.6em; font-size: 0.95em; color: var(--global-text-color); line-height: 1.5;">
           This study proposes a spatial-ML framework integrating longitudinal and lateral risky driving behaviors from connected vehicle data for intersection crash analysis.
         </div>
         <div style="margin-top: 0.8em; display: flex; gap: 0.5em; flex-wrap: wrap; align-items: center;">
@@ -83,14 +83,14 @@ I also serve as a reviewer for more than 10 transportation journals, including *
   <div class="featured-pub-item" style="margin-bottom: 2em; display: flex; gap: 2em; align-items: flex-start;">
     <div style="flex: 1; min-width: 0;">
       <div style="font-size: 1em; line-height: 1.6;">
-        <strong><a href="/publication/2024-08-01-transformer-abnormal-driving-crash-prediction" style="color: #1976d2; text-decoration: none;">Transformer-Based Modeling of Abnormal Driving Events for Freeway Crash Risk Evaluation</a></strong>
-        <div style="margin-top: 0.5em; font-size: 0.9em; color: #666;">
+        <strong><a href="/publication/2024-08-01-transformer-abnormal-driving-crash-prediction" style="color: var(--global-link-color); text-decoration: none;">Transformer-Based Modeling of Abnormal Driving Events for Freeway Crash Risk Evaluation</a></strong>
+        <div style="margin-top: 0.5em; font-size: 0.9em; color: var(--global-text-color);">
           <em>Transportation Research Part C: Emerging Technologies</em> (2024)
         </div>
-        <div style="margin-top: 0.4em; font-size: 0.9em; color: #555;">
+        <div style="margin-top: 0.4em; font-size: 0.9em; color: var(--global-text-color);">
           <strong>Lei Han</strong>, Rongjie Yu*, Chenzhu Wang, Mohamed Abdel-Aty
         </div>
-        <div style="margin-top: 0.6em; font-size: 0.95em; color: #444; line-height: 1.5;">
+        <div style="margin-top: 0.6em; font-size: 0.95em; color: var(--global-text-color); line-height: 1.5;">
           This study proposes a Transformer-based model for freeway crash risk evaluation using abnormal driving events, achieving 84.1% accuracy and 77.7% AUC and outperforming traditional methods. It also reveals the temporal-spatial decay and collective superposition effect of abnormal driving events.
         </div>
         <div style="margin-top: 0.8em; display: flex; gap: 0.5em; flex-wrap: wrap; align-items: center;">

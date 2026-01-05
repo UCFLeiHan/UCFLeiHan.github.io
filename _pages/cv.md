@@ -13,12 +13,13 @@ redirect_from:
 .cv-pdf-button {
   position: absolute;
   right: 0em;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   gap: 0.25em;
   padding: 0.25em 0.5em;
-  background-color: #1976d2;
+  background-color: var(--global-link-color);
   color: white;
   text-decoration: none;
   border-radius: 3px;
@@ -29,12 +30,13 @@ redirect_from:
   z-index: 10;
   height: fit-content;
   line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .cv-pdf-button:hover {
   background-color: #1565c0;
   box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
-  transform: translateY(-1px);
+  transform: translateY(-50%);
   color: white;
   text-decoration: none;
 }
@@ -44,7 +46,9 @@ redirect_from:
   padding-right: 100px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 1.2em;
+  gap: 1em;
 }
 
 /* Add right margin limit for CV page only */
@@ -63,23 +67,32 @@ redirect_from:
 }
 
 .cv-card {
-  background-color: white;
+  background-color: var(--global-bg-color);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1em 1.2em;
   transition: box-shadow 0.3s ease;
+  border: 1px solid var(--global-border-color);
 }
 
 .cv-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+html[data-theme="dark"] .cv-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .cv-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
 .cv-card-title {
   font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 1em;
-  color: #333;
-  border-bottom: 2px solid #1976d2;
+  color: var(--global-text-color);
+  border-bottom: 2px solid var(--global-link-color);
   padding-bottom: 0.5em;
 }
 
@@ -92,8 +105,8 @@ redirect_from:
   font-size: 1.2em;
   font-weight: 600;
   margin-bottom: 0;
-  color: #333;
-  border-bottom: 2px solid #1976d2;
+  color: var(--global-text-color);
+  border-bottom: 2px solid var(--global-link-color);
   padding-bottom: 0.3em;
   cursor: pointer;
   list-style: none;
@@ -110,7 +123,7 @@ redirect_from:
   content: '▶';
   position: absolute;
   right: 0;
-  color: #1976d2;
+  color: var(--global-link-color);
   font-size: 0.8em;
   transition: transform 0.3s ease;
   top: 50%;
@@ -126,8 +139,16 @@ redirect_from:
 }
 
 .cv-card-content {
-  color: #555;
+  color: var(--global-text-color);
   line-height: 1.6;
+}
+
+.cv-card-content p {
+  color: var(--global-text-color);
+}
+
+.cv-card-content span {
+  color: var(--global-text-color);
 }
 
 .cv-card-content p {
@@ -162,6 +183,29 @@ redirect_from:
   object-fit: contain;
   display: block;
   transition: opacity 0.3s ease;
+  background-color: var(--global-bg-color);
+  padding: 4px;
+  border: 1px solid var(--global-border-color);
+}
+
+/* Hide logo on mobile devices */
+@media (max-width: 768px) {
+  .cv-education-logo {
+    display: none;
+  }
+  
+  .cv-education-item a {
+    display: none;
+  }
+  
+  .cv-education-item {
+    gap: 0;
+  }
+  
+  .cv-education-content {
+    padding-left: 0;
+    border-left: none;
+  }
 }
 
 .cv-education-item a {
@@ -176,7 +220,7 @@ redirect_from:
 .cv-education-content {
   flex: 1;
   padding-left: 1em;
-  border-left: 3px solid #1976d2;
+  border-left: 3px solid var(--global-link-color);
 }
 
 .cv-education-item:last-child {
@@ -196,33 +240,33 @@ redirect_from:
 
 .cv-education-degree {
   font-weight: 600;
-  color: #1976d2;
+  color: var(--global-link-color);
   margin-bottom: 0.2em;
 }
 
 .cv-education-university {
   font-weight: 600;
-  color: #333;
+  color: var(--global-text-color);
   font-size: 0.95em;
 }
 
 .cv-education-meta {
   text-align: right;
-  color: #666;
+  color: var(--global-text-color);
   font-size: 0.9em;
   white-space: nowrap;
   margin-left: 1em;
 }
 
 .cv-education-details {
-  color: #666;
+  color: var(--global-text-color);
   font-size: 0.95em;
 }
 
 .cv-project-item {
   margin-bottom: 1.5em;
   padding-left: 1em;
-  border-left: 3px solid #1976d2;
+  border-left: 3px solid var(--global-link-color);
 }
 
 .cv-project-item:last-child {
@@ -231,18 +275,18 @@ redirect_from:
 
 .cv-project-title {
   font-weight: 600;
-  color: #1976d2;
+  color: var(--global-link-color);
   margin-bottom: 0.3em;
 }
 
 .cv-project-title a {
-  color: #1976d2;
+  color: var(--global-link-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .cv-project-title a:hover {
-  color: #1565c0;
+  color: var(--global-link-color-hover);
   text-decoration: underline;
 }
 
@@ -255,21 +299,21 @@ redirect_from:
 
 .cv-project-sponsor {
   font-weight: 600;
-  color: #333;
+  color: var(--global-text-color);
   font-size: 0.95em;
   flex: 1;
 }
 
 .cv-project-meta {
   text-align: right;
-  color: #666;
+  color: var(--global-text-color);
   font-size: 0.9em;
   white-space: nowrap;
   margin-left: 1em;
 }
 
 .cv-project-description {
-  color: #555;
+  color: var(--global-text-color);
   font-size: 0.95em;
   margin-top: 0.5em;
 }
@@ -286,7 +330,7 @@ redirect_from:
 .cv-project-section-title {
   font-size: 1em;
   font-weight: 600;
-  color: #333;
+  color: var(--global-text-color);
   margin-top: 1.5em;
   margin-bottom: 1em;
 }
@@ -298,7 +342,7 @@ redirect_from:
 .cv-publication-year {
   font-size: 1em;
   font-weight: 600;
-  color: #333;
+  color: var(--global-text-color);
   margin-top: 0.5em;
   margin-bottom: 0.3em;
 }
@@ -318,11 +362,11 @@ redirect_from:
 .cv-service-section-title {
   font-size: 1em;
   font-weight: 600;
-  color: #333;
+  color: var(--global-text-color);
   margin-top: 0;
   margin-bottom: 0.8em;
   padding-bottom: 0.3em;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--global-border-color);
 }
 
 .cv-service-list {
@@ -335,14 +379,14 @@ redirect_from:
   margin-bottom: 0.5em;
   padding-left: 1.2em;
   position: relative;
-  color: #555;
+  color: var(--global-text-color);
 }
 
 .cv-service-list li:before {
   content: "•";
   position: absolute;
   left: 0;
-  color: #1976d2;
+  color: var(--global-link-color);
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -352,13 +396,13 @@ redirect_from:
 }
 
 .cv-service-list li a {
-  color: #1976d2;
+  color: var(--global-link-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .cv-service-list li a:hover {
-  color: #1565c0;
+  color: var(--global-link-color-hover);
   text-decoration: underline;
 }
 
@@ -379,7 +423,19 @@ redirect_from:
   height: 160px;
   border-radius: 4px;
   object-fit: cover;
-  border: 2px solid #e0e0e0;
+  border: 2px solid var(--global-border-color);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cv-reference-item a {
+  display: block;
+  text-decoration: none;
+}
+
+.cv-reference-item a:hover .cv-reference-photo {
+  opacity: 0.8;
+  transform: scale(1.02);
 }
 
 .cv-reference-content {
@@ -389,7 +445,7 @@ redirect_from:
 
 .cv-reference-name {
   font-weight: 600;
-  color: #1976d2;
+  color: var(--global-link-color);
   font-size: 1.05em;
   margin-bottom: 0.3em;
   display: flex;
@@ -399,7 +455,7 @@ redirect_from:
 }
 
 .cv-reference-relationship {
-  color: #666;
+  color: var(--global-text-color-light);
   font-size: 0.85em;
   font-style: italic;
   font-weight: normal;
@@ -407,13 +463,13 @@ redirect_from:
 }
 
 .cv-reference-email {
-  color: #666;
+  color: var(--global-text-color);
   font-size: 0.9em;
   margin-bottom: 0.5em;
 }
 
 .cv-reference-details {
-  color: #555;
+  color: var(--global-text-color);
   font-size: 0.95em;
   line-height: 1.6;
   margin-bottom: 0.3em;
@@ -446,7 +502,7 @@ redirect_from:
   content: "•";
   position: absolute;
   left: 0;
-  color: #1976d2;
+  color: var(--global-link-color);
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -457,35 +513,35 @@ redirect_from:
 
 .cv-award-name {
   font-weight: 400;
-  color: #333;
+  color: var(--global-text-color);
   flex: 1;
   padding-right: 1em;
 }
 
 .cv-award-name strong {
   font-weight: 600;
-  color: #1976d2;
+  color: var(--global-link-color);
 }
 
 .cv-award-name strong a {
-  color: #1976d2;
+  color: var(--global-link-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .cv-award-name strong a:hover {
-  color: #1565c0;
+  color: var(--global-link-color-hover);
   text-decoration: underline;
 }
 
 .cv-award-name em {
   font-weight: 400;
   font-style: italic;
-  color: #666;
+  color: var(--global-text-color);
 }
 
 .cv-award-date {
-  color: #666;
+  color: var(--global-text-color);
   font-size: 0.9em;
   white-space: nowrap;
   text-align: right;
@@ -507,21 +563,6 @@ redirect_from:
   }
 }
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const pageTitle = document.querySelector('.archive .page__title');
-  if (pageTitle) {
-    const pdfButton = document.createElement('a');
-    pdfButton.href = '/files/LH_Academic_CV.pdf';
-    pdfButton.target = '_blank';
-    pdfButton.rel = 'noopener noreferrer';
-    pdfButton.className = 'cv-pdf-button';
-    pdfButton.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;"><path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PDF</span>';
-    pageTitle.appendChild(pdfButton);
-  }
-});
-</script>
 
 <div class="cv-card-container">
   
@@ -797,7 +838,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <summary>References</summary>
       <div class="cv-card-content">
       <div class="cv-reference-item">
-        <img src="/images/references/abdel-aty.jpg" alt="Dr. Mohamed Abdel-Aty" class="cv-reference-photo" onerror="this.style.display='none'">
+        <a href="https://scholar.google.com/citations?user=Cp4F4JkAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+          <img src="/images/references/abdel-aty.jpg" alt="Dr. Mohamed Abdel-Aty" class="cv-reference-photo" onerror="this.style.display='none'">
+        </a>
         <div class="cv-reference-content">
           <div class="cv-reference-name">
             <span>1. Dr. Mohamed Abdel-Aty</span>
@@ -813,7 +856,9 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       
       <div class="cv-reference-item">
-        <img src="/images/references/rongjie-yu.jpg" alt="Dr. Rongjie Yu" class="cv-reference-photo" onerror="this.style.display='none'">
+        <a href="https://scholar.google.com/citations?user=30nwNRsAAAAJ" target="_blank" rel="noopener noreferrer">
+          <img src="/images/references/rongjie-yu.jpg" alt="Dr. Rongjie Yu" class="cv-reference-photo" onerror="this.style.display='none'">
+        </a>
         <div class="cv-reference-content">
           <div class="cv-reference-name">
             <span>2. Dr. Rongjie Yu</span>
@@ -832,3 +877,4 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
 </div>
+

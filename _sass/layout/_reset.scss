@@ -114,6 +114,39 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
+/* Add white background to transparent images in dark mode */
+/* Target images that are likely to have transparent backgrounds (logos, icons, diagrams) */
+html[data-theme="dark"] img[src*="logo"],
+html[data-theme="dark"] img[src*="icon"],
+html[data-theme="dark"] img[src*="Logo"],
+html[data-theme="dark"] img[src*="Icon"],
+html[data-theme="dark"] .publication-image-item img,
+html[data-theme="dark"] img[src$=".png"]:not(.research-module-image):not(.painting-image-item img) {
+  background-color: #ffffff !important;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Publications page teaser images - add white background for transparent PNGs */
+html[data-theme="dark"] #publications-list .archive__item-teaser img[src$=".png"] {
+  background-color: #ffffff;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+/* Exclude certain images that shouldn't have white background */
+html[data-theme="dark"] .research-module-image,
+html[data-theme="dark"] .painting-image-item img,
+html[data-theme="dark"] img[style*="object-fit: cover"],
+html[data-theme="dark"] .page__hero img,
+html[data-theme="dark"] .cv-education-logo,
+html[data-theme="dark"] img[src$=".jpg"],
+html[data-theme="dark"] img[src$=".jpeg"],
+html[data-theme="dark"] img[src$=".gif"] {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
 /* Prevent max-width from affecting Google Maps */
 
 #map_canvas img,

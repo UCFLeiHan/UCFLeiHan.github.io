@@ -81,9 +81,10 @@ author_profile: true
   min-height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--global-border-color);
   border-radius: 4px;
   padding: 0.8em;
+  background-color: var(--global-bg-color);
 }
 
 .news-scroll-container::-webkit-scrollbar {
@@ -91,7 +92,7 @@ author_profile: true
 }
 
 .news-scroll-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--global-border-color);
   border-radius: 4px;
 }
 
@@ -109,21 +110,37 @@ author_profile: true
   align-items: flex-start;
   padding: 0.8em 0.5em;
   margin: 0 -0.5em;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--global-border-color);
   border-left: 3px solid transparent;
   font-size: 1em;
   line-height: 1.6;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease-in-out;
   cursor: default;
+  color: var(--global-text-color);
+  background-color: transparent;
 }
 
 .news-item:hover {
-  background-color: #f5f8ff;
-  border-left-color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.08);
+  border-left-color: var(--global-link-color);
   border-radius: 4px;
   padding-left: 0.8em;
-  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transform: translateX(2px);
+}
+
+html[data-theme="dark"] .news-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.news-item:active {
+  background-color: rgba(33, 150, 243, 0.12);
+  border-left-color: var(--global-link-color);
+}
+
+html[data-theme="dark"] .news-item:active {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .news-item:last-child {
@@ -134,10 +151,39 @@ author_profile: true
   flex-shrink: 0;
   margin-right: 0.8em;
   min-width: 80px;
+  color: var(--global-text-color);
+  font-weight: 600;
 }
 
 .news-text {
   flex: 1;
+  color: var(--global-text-color);
+}
+
+.news-text a {
+  color: var(--global-link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.news-text a:hover {
+  color: var(--global-link-color-hover);
+  border-bottom-color: var(--global-link-color-hover);
+}
+
+.news-text strong {
+  color: var(--global-text-color);
+  font-weight: 600;
+}
+
+.news-text a strong {
+  color: var(--global-link-color);
+  font-weight: 600;
+}
+
+.news-text a:hover strong {
+  color: var(--global-link-color-hover);
 }
 </style>
 
