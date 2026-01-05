@@ -1,0 +1,583 @@
+/* ==========================================================================
+   ARCHIVE
+   ========================================================================== */
+
+.archive {
+  margin-bottom: 2em;
+
+  @include breakpoint($medium) {
+    @include span(12 of 12);
+  }
+
+  @include breakpoint($large) {
+    @include span(10 of 12 last);
+    @include prefix(0.5 of 12);
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
+    }
+  }
+}
+
+
+/* ==========================================================================
+   Publications Filter
+   ========================================================================== */
+
+.publications-filter-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 15; /* Below masthead (z-index: 20) but above content */
+  background-color: var(--global-bg-color);
+  margin-bottom: 2em;
+  padding: 1em 0;
+  border-bottom: 1px solid var(--global-border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px); /* Optional: adds a subtle blur effect */
+}
+
+/* Ensure archive container doesn't prevent sticky */
+.archive {
+  /* Remove any overflow that might prevent sticky */
+  overflow: visible !important;
+}
+
+.publications-filter-row {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include breakpoint(max-width $small) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.publication-search-input {
+  flex: 1.5;
+  min-width: 200px;
+  padding: 0.5em 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  font-size: $type-size-6;
+  font-family: $global-font-family;
+
+  &:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+    box-shadow: 0 0 0 2px rgba(var(--global-theme-color-rgb), 0.2);
+  }
+
+  @include breakpoint(max-width $small) {
+    width: 100%;
+  }
+}
+
+.publication-filter-select {
+  padding: 0.5em 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  font-size: $type-size-6;
+  font-family: $global-font-family;
+  background-color: var(--global-bg-color);
+  cursor: pointer;
+  min-width: 120px;
+  flex: 1;
+
+  &:focus {
+    outline: none;
+    border-color: var(--global-theme-color);
+    box-shadow: 0 0 0 2px rgba(var(--global-theme-color-rgb), 0.2);
+  }
+
+  @include breakpoint(max-width $small) {
+    width: 100%;
+  }
+}
+
+/* Journal/Conference/Preprint filter takes more space */
+#publication-journal-filter {
+  flex: 2.0;
+}
+
+/* Research Objects filter takes more space */
+#publication-objects-filter {
+  flex: 1.5;
+}
+
+/* Year filter takes less space */
+#publication-year-filter {
+  flex: 0.10;
+}
+
+/* All Authors filter takes more space */
+#author-format-filter {
+  flex: 1.5;
+}
+
+.no-results-message {
+  text-align: center;
+  padding: 2em;
+  color: var(--global-text-color-light);
+  font-style: italic;
+}
+
+.archive__subtitle {
+  margin: 1.414em 0 0;
+  padding-bottom: 0.5em;
+  font-size: $type-size-5;
+  color: var(--global-text-color-light);
+  border-bottom: 1px solid var(--global-border-color);
+
+  + .list__item .archive__item-title {
+    margin-top: 0.5em;
+  }
+}
+
+.archive__item-title {
+  margin-bottom: 0.25em;
+  font-family: $sans-serif-narrow;
+
+  a {
+    color: #64b5f6;
+    text-decoration: none;
+    
+    &:hover {
+      color: #1976d2;
+      text-decoration: underline;
+    }
+  }
+
+  a + a {
+    opacity: 0.5;
+  }
+}
+
+/* remove border*/
+.page__content {
+  .archive__item-title {
+    margin-top: 1em;
+    border-bottom: none;
+  }
+  
+  /* Don't apply margin-top to items with images */
+  .archive__item--with-image .archive__item-title {
+    margin-top: 0 !important;
+  }
+}
+
+.archive__item-excerpt {
+  margin-top: 0;
+  font-size: $type-size-6;
+
+  & + p {
+    text-indent: 0;
+  }
+}
+
+/* ==========================================================================
+   Publication-specific styles for compact spacing
+   ========================================================================== */
+
+.archive__item {
+  /* Authors */
+
+  .archive__item-authors {
+    margin-top: 0.25em !important;
+    margin-bottom: 0.25em !important;
+    font-size: $type-size-5 !important;
+    line-height: 1.4;
+  }
+
+  /* Publication venue/status */
+  .archive__item-venue {
+    margin-top: 0.25em !important;
+    margin-bottom: 0.25em !important;
+    font-size: $type-size-5 !important;
+    line-height: 1.4;
+  }
+
+  /* Description/Excerpt for publications - now using div instead of p */
+  .archive__item-excerpt {
+    margin-top: 0.25em;
+    margin-bottom: 0; /* No bottom margin */
+    line-height: 1.4;
+  }
+
+  /* Action buttons - now using div instead of p */
+  .archive__item-actions {
+    margin-top: 0; /* No top margin */
+    margin-bottom: 0.25em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+
+  .archive__item-buttons {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .archive__item-tags {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: auto; /* Push tags to the right */
+  }
+
+  /* Publication Tags */
+  .publication-tag {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    border-radius: 12px;
+    font-size: 0.65em;
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .publication-tag--method {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+  }
+
+  .publication-tag--data {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+    border: 1px solid #ce93d8;
+  }
+
+  .publication-tag--objects {
+    background-color: #e8f5e9;
+    color: #388e3c;
+    border: 1px solid #a5d6a7;
+  }
+
+  /* Critical: when excerpt is immediately followed by actions, ZERO spacing */
+  .archive__item-excerpt + .archive__item-actions {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+}
+
+.archive__item-teaser {
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin-bottom: 1em;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+/* Publication items with image - left-right layout */
+.archive__item--with-image {
+  .archive__item-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    align-items: stretch; /* Stretch to match content height */
+    margin-bottom: 0; /* Remove bottom margin as list__item now handles spacing */
+    
+    /* Use order to place image on the right */
+    .archive__item-teaser {
+      order: 2; /* Image appears second (on right) */
+    }
+    
+    .archive__item-content {
+      order: 1; /* Content appears first (on left) */
+    }
+    
+    @include breakpoint(max-width $small) {
+      flex-direction: column; /* On small screens, stack normally */
+      gap: 1em;
+      align-items: flex-start;
+      
+      .archive__item-teaser,
+      .archive__item-content {
+        order: 0; /* Reset order on small screens */
+      }
+    }
+  }
+  
+  .archive__item-teaser {
+    flex: 0 0 300px; /* Fixed width */
+    margin-bottom: 0 !important;
+    width: 300px;
+    min-width: 300px;
+    height: 250px !important; /* Fixed height for consistent spacing */
+    min-height: 250px !important;
+    max-height: 250px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* For zoom effect */
+    
+    @include breakpoint(max-width $small) {
+      width: 100%;
+      min-width: 100%;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+    }
+    
+    a {
+      display: block;
+      line-height: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      object-fit: contain !important; /* Scale to fit while maintaining aspect ratio */
+      transition: transform 0.3s ease; /* Smooth zoom transition */
+    }
+    
+    /* Zoom on hover */
+    &:hover img {
+      transform: scale(1.1); /* Zoom in 10% on hover */
+    }
+  }
+  
+  .archive__item-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Override page__content styles for title */
+  .archive__item-title {
+    margin-top: 0 !important;
+    margin-bottom: 0.25em;
+  }
+}
+
+.archive__item:hover {
+  .archive__item-teaser {
+    box-shadow: 0 0 10px rgba(#000, 0.25);
+  }
+
+  .archive__item-title {
+    text-decoration: underline;
+  }
+}
+
+
+/*
+   List view
+   ========================================================================== */
+
+.list__item {
+  margin-bottom: 1.5em;
+  
+  @include breakpoint($medium) {
+    padding-right: $right-sidebar-width-narrow;
+  }
+
+  @include breakpoint($large) {
+    padding-right: $right-sidebar-width;
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: $right-sidebar-width-wide;
+  }
+}
+
+/* Publication card container styles - only for publications page */
+#publications-list .list__item {
+  padding: 1.5em;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  @include breakpoint($medium) {
+    padding-right: 1.5em; /* Override default padding-right */
+  }
+
+  @include breakpoint($large) {
+    padding-right: 1.5em; /* Override default padding-right */
+  }
+
+  @include breakpoint($x-large) {
+    padding-right: 1.5em; /* Override default padding-right */
+  }
+
+  .page__meta {
+    margin: 0 0 4px;
+  }
+}
+
+
+/*
+   Grid view
+   ========================================================================== */
+
+.grid__item {
+  margin-bottom: 2em;
+
+  .page__meta {
+    margin: 0 0 4px;
+  }
+
+  .archive__item-title {
+    margin-top: 0.5em;
+    font-size: $type-size-5;
+  }
+
+  .archive__item-excerpt {
+    display: none;
+  }
+
+  @include breakpoint($small) {
+    @include gallery(5 of 10);
+    .archive__item-teaser {
+      max-height: 200px;
+    }
+  }
+
+  @include breakpoint($medium) {
+    margin-left: 0; /* reset before mixin does its thing*/
+    margin-right: 0; /* reset before mixin does its thing*/
+    @include gallery(2.5 of 10);
+
+    .archive__item-teaser {
+      max-height: 120px;
+    }
+
+    .archive__item-excerpt {
+      display: block;
+      font-size: $type-size-6;
+    }
+  }
+}
+
+
+/*
+   Features
+   ========================================================================== */
+
+.feature__wrapper {
+  @include clearfix();
+  margin-bottom: 2em;
+  border-bottom: 1px solid var(--global-border-color);
+}
+
+.feature__item {
+  margin-bottom: 2em;
+  font-size: 1.25rem;
+
+  @include breakpoint($small) {
+    margin-bottom: 0;
+    @include gallery(4 of 12);
+
+    .feature__item-teaser {
+      max-height: 200px;
+      overflow: hidden;
+    }
+  }
+
+  &--left {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      .archive__item-teaser {
+        @include span(5 of 12);
+      }
+
+      .archive__item-body {
+        @include span(7 of 12 last);
+        @include prefix(0.5 of 12);
+        @include suffix(1 of 12);
+      }
+    }
+  }
+
+  &--right {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      text-align: right;
+
+      .archive__item-teaser {
+        @include span(5 of 12 rtl);
+      }
+
+      .archive__item-body {
+        @include span(7 of 12 last rtl);
+        @include prefix(0.5 of 12);
+        @include suffix(1 of 12);
+      }
+    }
+  }
+
+  &--center {
+    @include full();
+    font-size: 1.25rem;
+
+    .archive__item-teaser {
+      margin-bottom: 2em;
+    }
+
+    @include breakpoint($small) {
+      text-align: center;
+
+      .archive__item-teaser {
+        margin: 0 auto;
+        width: span(5 of 12);
+      }
+
+      .archive__item-body {
+        margin: 0 auto;
+        width: span(7 of 12);
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+{% include base_path %}
+
+<!-- Search and Filter Controls -->
+<div class="publications-filter-container">
+  <!-- Single Row: Search, Research Objects, Journal/Conference/Preprint, Year, All Authors -->
+  <div class="publications-filter-row">
+    <input type="text" id="publication-search" class="publication-search-input" placeholder="Search..." />
+    <select id="publication-objects-filter" class="publication-filter-select">
+      <option value="">Research Objects</option>
+      <option value="traffic conflicts analysis">Traffic Conflicts Analysis</option>
+      <option value="real-time crash prediction">Real-Time Crash Prediction</option>
+      <option value="crash severity analysis">Crash Severity Analysis</option>
+      <option value="crash frequency modeling">Crash Frequency Modeling</option>
+      <option value="risky driving behavior">Risky Driving Behavior</option>
+      <option value="spatial modeling">Spatial Modeling</option>
+      <option value="traffic state prediction">Traffic State Prediction</option>
+    </select>
+    <select id="publication-journal-filter" class="publication-filter-select">
+      <option value="">Journal/Conference/Preprint</option>
+      {% assign all_venues = site.publications | map: 'venue' | uniq | sort %}
+      {% for venue in all_venues %}
+        {% if venue %}
+          <option value="{{ venue | downcase }}">{{ venue }}</option>
+      {% endif %}
+    {% endfor %}
+    </select>
+    <select id="publication-year-filter" class="publication-filter-select">
+      <option value="">Year</option>
+      {% assign years = site.publications | map: 'year' | uniq | sort | reverse %}
+      {% for year in years %}
+        <option value="{{ year }}">{{ year }}</option>
+  {% endfor %}
+    </select>
+    <select id="author-format-filter" class="publication-filter-select">
+      <option value="all">All Authors</option>
+      <option value="first">First Author</option>
+      <option value="corresponding">Corresponding Author</option>
+      <option value="other">Other Authors</option>
+    </select>
+  </div>
+  <div id="publications-count" style="margin-top: 0.5em; font-size: 0.9em; color: #666;">
+    Find <span id="publications-count-number">0</span> papers
+  </div>
+</div>
+
+<!-- Publications List -->
+<div id="publications-list">
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+</div>
+
+<script src="{{ base_path }}/assets/js/publications-filter.js"></script>
+
+
+

@@ -1,0 +1,42 @@
+{% include base_path %}
+
+{% assign all_single_pages = site.pages | where: "layout", "single" %}
+{% assign research_pages = '' | split: '' %}
+{% for item in all_single_pages %}
+  {% if item.permalink contains '/research/' %}
+    {% unless item.permalink == '/research/' %}
+      {% assign research_pages = research_pages | push: item %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+{% assign research_pages = research_pages | sort: "permalink" %}
+{% assign prev_page = null %}
+{% assign next_page = null %}
+{% assign found_current = false %}
+
+{% for item in research_pages %}
+  {% if found_current == true %}
+    {% assign next_page = item %}
+    {% break %}
+  {% endif %}
+  {% if item.permalink == page.permalink %}
+    {% assign found_current = true %}
+  {% else %}
+    {% assign prev_page = item %}
+  {% endif %}
+{% endfor %}
+
+<nav class="pagination">
+  {% if prev_page %}
+    <a href="{{ base_path }}{{ prev_page.permalink }}" class="pagination--pager" title="{{ prev_page.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+  {% else %}
+    <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a>
+  {% endif %}
+  
+  {% if next_page %}
+    <a href="{{ base_path }}{{ next_page.permalink }}" class="pagination--pager" title="{{ next_page.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+  {% else %}
+    <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a>
+  {% endif %}
+</nav>
+
