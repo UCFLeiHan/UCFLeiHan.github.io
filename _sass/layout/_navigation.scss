@@ -211,36 +211,9 @@
   .mobile-theme-toggle {
     position: absolute;
     height: 2.5rem;
-    right: 2.5rem; // Position to the left of hamburger menu (which is 2.5rem wide)
-    padding: 0 0.5rem;
-    display: none; // Hidden by default (desktop)
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 100;
-    color: var(--global-masthead-link-color);
-    text-decoration: none;
-    
-    @media (max-width: 42.375em) {
-      display: flex; // Show on mobile
-    }
-    
-    i {
-      font-size: 1.2em;
-    }
-    
-    &:hover {
-      color: var(--global-masthead-link-color-hover);
-    }
-  }
-
-  // Mobile theme toggle - positioned before hamburger menu
-  .mobile-theme-toggle {
-    position: absolute;
-    height: 2.5rem;
     right: 1.5rem; // Position closer to hamburger menu button
     padding: 0 0.5rem;
-    display: none; // Hidden by default (desktop)
+    display: none !important; // Hidden by default (desktop)
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -249,7 +222,7 @@
     text-decoration: none;
     
     @media (max-width: 42.375em) {
-      display: flex; // Show on mobile
+      display: flex !important; // Show on mobile
     }
     
     i {
