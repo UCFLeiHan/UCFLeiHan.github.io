@@ -193,7 +193,8 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
+      share: false
+      pagination: false
       related: false
   # _pages
   - scope:

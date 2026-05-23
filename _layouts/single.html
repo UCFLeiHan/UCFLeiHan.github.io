@@ -128,7 +128,7 @@ layout: default
 
       {% if page.permalink contains '/research/' and page.permalink != '/research/' %}
         {% include research-pagination.html %}
-      {% else %}
+      {% elsif page.pagination != false %}
         {% include post_pagination.html %}
       {% endif %}
     </div>

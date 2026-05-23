@@ -11,7 +11,7 @@ tags:
 layout: single
 author_profile: true
 read_time: true
-share: true
+share: false
 excerpt: "This post shares my experience of developing a FPS game using Gemini AI Studio and Cursor, showcasing the collaborative potential between AI and human in game creation."
 header:
   teaser: posts/ZFighting.gif

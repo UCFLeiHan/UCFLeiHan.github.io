@@ -12,7 +12,7 @@ tags:
 layout: single
 author_profile: true
 read_time: true
-share: true
+share: false
 excerpt: "This post introduces the NPTOI Dashboard, an interactive web platform for visualizing CV data-based traffic operation indicators and AI-powered traffic predictions."
 header:
   teaser: posts/NPTOIDashboard.gif
