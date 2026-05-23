@@ -6,12 +6,18 @@ author_profile: true
 ---
 
 <div class="news-page-wrapper">
-<div class="notice--info" style="margin: 1.5em 0 0em 0; padding: 1em; background-color: #e3f2fd; border: 1px solid #2196f3; border-radius: 4px; display: flex; align-items: flex-start; gap: 0.5em;">
-  <div style="flex-shrink: 0; width: 24px; height: 24px; background-color: #2196f3; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.0em;">i</div>
-  <div style="flex: 1; font-size: 1.25em;">I will graduate in May 2026 and am seeking postdoctoral opportunities in transportation research, including transportation safety, CAV data applications, and urban traffic modeling!</div>
-</div>
 
 <div class="news-scroll-container">
+  <div class="news-item">
+    <span class="news-date"><strong>05/2026:</strong></span>
+    <span class="news-text">I received my <strong>Ph.D. degree in Civil Engineering</strong> under the supervision of Dr. Mohamed Abdel-Aty from the University of Central Florida! Check it <a href="https://www.linkedin.com/posts/ucf-sst_ucf-sstlab-transportationengineering-activity-7460410259661266944-qC8A?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi5VJYBzuSWROkYS97HB8oDko_SEVylAz8" target="_blank" rel="noopener noreferrer">here</a>!</span>
+  </div>
+
+  <div class="news-item">
+    <span class="news-date"><strong>01/2026:</strong></span>
+    <span class="news-text">Attended <strong>TRB 2026 Annual Meeting</strong> in Washington, D.C.! Here are some posts about our team's activities: <a href="https://www.linkedin.com/posts/ucf-sst_a-great-moment-at-trb-2026-with-dr-atymohamed-activity-7416838251677818881-X3Ei?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi5VJYBzuSWROkYS97HB8oDko_SEVylAz8" target="_blank" rel="noopener noreferrer">Post 1</a>, <a href="https://www.linkedin.com/posts/ucf-sst_ucf-sst-2026-trb-activity-7401649542988865536-QZEt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEi5VJYBzuSWROkYS97HB8oDko_SEVylAz8" target="_blank" rel="noopener noreferrer">Post 2</a>.</span>
+  </div>
+
   <div class="news-item">
     <span class="news-date"><strong>11/2025:</strong></span>
     <span class="news-text">I am glad to share that I have been selected for the <a href="https://www.icftte.org/fstar" target="_blank" rel="noopener noreferrer"><strong>Future Stars Award</strong></a> in the Frontiers of Traffic and Transportation Engineering (FTTE 2025).</span>
@@ -186,4 +192,3 @@ html[data-theme="dark"] .news-item:active {
   color: var(--global-link-color-hover);
 }
 </style>
-

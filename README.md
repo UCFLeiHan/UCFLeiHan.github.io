@@ -1,12 +1,12 @@
 # Lei Han - Academic Homepage
 
-Personal academic website of **Lei Han**, PhD candidate in Civil Engineering at the University of Central Florida.
+Personal academic website of **Lei Han**, Postdoctoral Researcher at the UCF Smart & Safe Transportation Lab.
 
 🌐 **Live Site**: [https://ucfleihan.github.io](https://ucfleihan.github.io)
 
 ## About
 
-I am a PhD candidate in Civil Engineering at the University of Central Florida (UCF), working as a Research Assistant at the Smart & Safe Transportation (SST) Lab under the supervision of [Dr. Mohamed Abdel-Aty](https://scholar.google.com/citations?user=Cp4F4JkAAAAJ&hl=en).
+I am a Postdoctoral Researcher at the Smart & Safe Transportation (SST) Lab at the University of Central Florida (UCF).
 
 ### Research Interests
 

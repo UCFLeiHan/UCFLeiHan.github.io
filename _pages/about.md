@@ -4,7 +4,7 @@ permalink: /
 author_profile: true
 ---
 
-I am a PhD candidate in Civil Engineering at the University of Central Florida (UCF), working as a Research Assistant at the Smart & Safe Transportation (SST) Lab under the supervision of Dr. Mohamed Abdel-Aty. I received my Master's and Bachelor's degrees in Transportation Engineering from Tongji University in 2023 and 2020, respectively (download my CV [here](/files/LH_Academic_CV.pdf)). 
+I am a Postdoctoral Researcher at the Smart & Safe Transportation (SST) Lab at the University of Central Florida (UCF) (Supervisor: Dr. Mohamed Abdel-Aty). I received my doctoral degree in Civil Engineering from UCF in 2026 and my master's and bachelor's degrees in Transportation Engineering from Tongji University in 2023 and 2020, respectively (see my CV [here](/files/LH_Academic_CV.pdf)).
 
 My research focuses on data-driven transportation safety and operation modeling, with a particular emphasis on large-scale connected vehicle (CV) trajectory data applications. Specifically, my work encompasses driving-behavior-enhanced traffic safety modeling, CV-data-based network traffic operation and prediction, and innovative crash analytic methods (see my research [here](/research/)). 
 
@@ -31,7 +31,7 @@ I also serve as a reviewer for more than 10 transportation journals, including *
     <ul style="list-style: none; padding-left: 0; margin-top: 0;">
       <li style="margin-bottom: 0.2em;">
         Ph.D. in Civil Engineering<br>
-        <span style="font-size: 0.7em; color: var(--global-text-color);">University of Central Florida, 2023-2026 (expected)</span>
+        <span style="font-size: 0.7em; color: var(--global-text-color);">University of Central Florida, 2023-2026</span>
       </li>
       <li style="margin-bottom: 0.2em;">
         M.S. in Transportation Engineering<br>

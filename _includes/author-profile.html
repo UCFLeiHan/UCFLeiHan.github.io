@@ -128,7 +128,10 @@
       {% endif %}      
       {% if author.linkedin %}
         <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-fw fa-linkedin icon-pad-right" aria-hidden="true"></i>LinkedIn</a></li>
-      {% endif %}      
+      {% endif %}
+      <li class="author__visitor-map" style="margin-top: 1rem; max-width: 180px; max-height: 120px; overflow: hidden;">
+        <script type="text/javascript" id="mapmyvisitors" src="https://mapmyvisitors.com/map.js?cl=080808&w=180&t=t&d=tUmzf1hDt22-joI7y2g_nvl4AE5BS4yPPnnHZGUiKiU&co=ffffff&ct=808080&cm=3acc3a&cmn=ff5353"></script>
+      </li>
       {% if author.mastodon %}
         <li><a href="{{ author.mastodon }}"><i class="fab fa-fw fa-mastodon icon-pad-right" aria-hidden="true"></i>Mastodon</a></li>
       {% endif %}
