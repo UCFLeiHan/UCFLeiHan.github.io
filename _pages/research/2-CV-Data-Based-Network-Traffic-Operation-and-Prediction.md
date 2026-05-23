@@ -2,7 +2,7 @@
 layout: single
 title: "CV-Data-Based Network Traffic Operation and Prediction"
 permalink: /research/2-CV-Data-Based-Network-Traffic-Operation-and-Prediction/
-share: true
+share: false
 ---
 
 <style>

@@ -2,7 +2,7 @@
 layout: single
 title: "Innovative Analytic Methods for Crash Research"
 permalink: /research/3-Innovative-Analytic-Methods-for-Crash-Research/
-share: true
+share: false
 ---
 
 <style>

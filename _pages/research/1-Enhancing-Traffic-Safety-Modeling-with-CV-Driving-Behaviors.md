@@ -2,7 +2,7 @@
 layout: single
 title: "Enhancing Traffic Safety Modeling with CV Driving Behaviors"
 permalink: /research/1-Enhancing-Traffic-Safety-Modeling-with-CV-Driving-Behaviors/
-share: true
+share: false
 ---
 
 <style>
